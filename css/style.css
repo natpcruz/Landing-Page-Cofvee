@@ -1,0 +1,197 @@
+/* importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');
+
+* { /* reset básico - regra para todos os elementos do HTML */
+    margin: 0; /* espaço fora do elemento (entre ele e os vizinhos) */
+    padding: 0; /* preenchimento, espaço dentro do elemento (entre a borda e o conteúdo) */
+    box-sizing: border-box; /* faz com que padding e border sejam incluídos na largura total do elemento */
+}
+
+:root { /* paleta de cores principal para ser utilizada no decorrer do design */
+    --primary-color: #562323; 
+    --secondary-color: #ad4819; 
+    --background-color: #ffe8d4; 
+}
+
+html { /* CSS vai procurar a tag html */
+    scroll-behavior: smooth; /* tela deslizar suavemente ao clicar nos links do menu */
+}
+
+body { /* regras para a página inteira */
+    font-family: 'Poppins', sans-serif; /* escolha principal e fonte padrão */
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, .logo { /* ordem única para os títulos e a logo */
+    font-family: 'Merriweather', serif; 
+    color: var(--primary-color);
+}
+
+section { /* padding nas seções permite criar "faixas" horizontais coloridas, mantendo o conteúdo alinhado no centro */
+    padding: 80px 10%; /* regra geral para desgrudar itens das bordas */
+}
+
+/* com um ., o css procura uma classe */
+.card { /* estiliza os blocos de conteúdo, criando um visual de cartão para as informações */
+    border: 2px solid var(--primary-color); 
+    border-radius: 25px;  /* cria cantos arredondados */
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.08); /* profundidade - eixo x, eixo y, raio de desfoque, cor */
+    padding: 20px; 
+    width: 300px; /* largura fixa para o card */
+    min-height: 50px; /* altura mínima, mas permite crescer se tiver muito texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* mudanças de estilo de forma suave*/
+}
+
+.card:hover { /* :hover muda o visual ao passar o mouse por cima */
+    transform: translateY(-4px); /* 4 pixels para cima */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); 
+} 
+
+button { /* define a aparência visual padrão de todos os botões clicáveis da página */
+    background-color: var(--primary-color);
+    color: white; 
+    border: none; 
+    padding: 20px 30px; /* vertical horizontal */
+    border-radius: 20px; 
+    cursor: pointer; /* muda a seta do mouse para a mãozinha */
+    transition: background-color 0.3s ease; /* animação suave de 0.3 segundos na mudança de cor */
+} 
+
+button:hover { /* :hover muda o visual do botão ao passar o mouse por cima */
+    background-color: var(--secondary-color); 
+} 
+
+/* Flexbox é a principal ferramenta para organizar elementos lado a lado ou em coluna, alinhados e distribuídos de forma flexível.  */
+
+header { /* organiza o logotipo e o menu de navegação na parte superior da página usando Flexbox */
+    display: flex; /* ativa o modo flexível no contêiner pai */
+    justify-content: space-between; /* alinhamento no eixo principal — horizontal, por padrão */
+    align-items: center; /* alinhamento no eixo transversal — vertical, por padrão */
+    padding: 20px 10%; 
+} 
+
+nav ul { /* pede para o navegador encontrar a lista (ul) que está dentro da área de navegação (nav) */
+    display: flex; /* coloca os links do menu lado a lado. */
+    gap: 15px; /* espaçamento entre itens, sem precisar de margin manual */
+    list-style: none;  /* remove as bolinhas da lista do HTML */
+} 
+
+nav ul a { /* regra para a tag <a> */
+    text-decoration: none; /* tira o sublinhado */
+    color: var(--primary-color); /* muda a cor, antes azul */
+    font-weight: bold;
+}
+
+nav ul a:hover {
+    color: var(--secondary-color); 
+} 
+
+.logo {
+    font-size: 20px; /* tamanho do ícone e do texto */
+    font-weight: bold; /* negrito */
+}
+
+/* com a #, o css procura um id */
+#hero { /* ajuste de espaço interno */
+    display: flex;
+    flex-direction: row; /* coloca itens lado a lado */
+    align-items: center; /* centraliza a imagem e o texto verticalmente */
+    justify-content: space-between;
+    gap: 50px; /* espaço entre o texto e a foto */
+    padding-bottom: 50px; /* reduz o espaço inferior da seção */
+}
+
+#hero h1 { /* muda apenas o <h1> que estiver dentro do #hero */
+    font-size: 50px; /* tamanho da letra */
+    line-height: 1.2; /* espaço entre as linhas do texto */
+}
+
+.hero-text { /* regras para a caixa de texto */
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 20px; 
+    width: 55%; /* texto ocupará mais da metade da tela */
+}
+
+.hero-img { /* seletor: .hero-img - indica quem vai sofrer a alteração */
+    width: 45%; /* imagem ocupa o restante da largura */
+    height: 400px;
+    position: relative; /* transforma a caixa no "ponto de referência" das fotos */
+}
+
+.hero-img img { /* regras para as imagens */
+    position: absolute; /* permite que flutuem uma sobre a outra */
+    border-radius: 20px; /* foto com cantos redondos */
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.15); 
+    object-fit: cover;
+}
+
+.foto-fundo { /* regras apenas da foto de trás */
+    width: 70%; /* menor que 100% para sobrar espaço para a montagem */
+    height: 340px;
+    top: 0; /* prende a foto no topo da moldura */
+    right: 0; /* prende a foto no lado direito */
+    z-index: 1; /* define a "camada" de profundidade */
+    border: 5px solid  var(--secondary-color);
+}
+
+.foto-frente { /* regras para a foto da frente */
+    width: 60%;
+    height: 340px;
+    bottom: 0; /* prende a foto na parte de baixo */
+    left: 0; /* prende a foto no lado esquerdo */
+    z-index: 2; /* o número maior força essa imagem a ficar na frente */
+    border: 5px solid  var(--secondary-color); /* borda da cor do fundo do site para destacar */
+}
+
+#beneficios { /* organiza a seção que engloba todos os cards, centralizando-os na tela */
+    display: flex; 
+    justify-content: center;
+    gap: 40px; 
+    flex-wrap: wrap; /* itens aparecem na linha de baixo caso não caibam todos lado a lado */
+    padding: 50px 50px; 
+} 
+
+#beneficios h3 {
+    color: var(--secondary-color); 
+}
+
+#sobre { 
+    text-align: center; /* centraliza o texto nesta seção */
+    padding: 80px 20%; /* 20% nas laterais para posicionar o texto no meio */
+    background-color: #f7dac4; /* tom mais escuro que o fundo original para destacar */
+}
+
+#sobre h2 {
+    margin-bottom: 20px; /* espaço entre o título da seção e o parágrafo de explicação */
+}
+
+footer { /* melhorias no rodapé */
+    text-align: center;
+    padding: 30px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* estilizar primeiro para telas maiores e depois adaptar para menores - desktop first */
+@media (max-width: 768px) { /* media queries - responsividade, regras para telas menores que 768 pixels de largura */
+    nav ul {
+        flex-direction: column;
+    }
+
+    #hero {
+        flex-direction: column;
+        text-align: center; /* centraliza o texto no celular */
+    }
+
+    .hero-text, .hero-img {
+        width: 100%; /* força o texto e as imagens a usarem toda a tela no celular */
+        align-items: center; /* centraliza o botão no celular */
+    }
+
+    #beneficios {
+        flex-direction: column;
+        align-items: center;
+    }
+}
