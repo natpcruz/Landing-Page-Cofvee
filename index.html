@@ -1,0 +1,65 @@
+<!DOCTYPE html> <!-- Evita que o navegador tente ler o site com regras antigas -->
+<html lang="pt-br"> <!-- Tag que envolve todo o site. Informa o idioma principal -->
+    <head> <!-- Configurações, fontes, links para o CSS. Nada aparece na tela do usuário -->
+        <meta charset="UTF-8"> <!-- Codificação de caracteres do site. UTF-8 é o padrão global -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Largura da página do tamanho da tela do dispositivo -->
+        <title> Cofvee </title> <!-- Texto que vai aparecer na aba do navegador -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css"> <!-- Conecta HTML ao CSS. rel="stylesheet" avisa que é um arquivo de estilos. href aponta o caminho de onde ele está -->
+    </head>
+
+    <body> <!-- Tem o que o usuário vai ver e interagir -->
+        
+        <header> <!-- Cabeçalho da página (logo + navegação) -->
+            <div class="logo"> <!-- Caixa genérica usada para agrupar elementos -->
+                <i class="fa-solid fa-mug-hot"></i> Cofvee
+            </div>
+            <nav> <!-- Menu de navegação -->
+                <ul> <!-- Unordered List. Cria uma lista de itens usando bolinhas (bullets)-->
+                    <li><a href="#hero">Início</a></li> <!-- List Item. Cada linha dentro da <ul> precisa estar dentro de um <li> -->
+                    <li><a href="#beneficios">Vantagens</a></li> <!-- <a> é tag de link (vem de anchor). O atributo href define para onde o link vai levar -->
+                    <li><a href="#sobre">Sobre nós</a></li> <!-- Com a #, o navegador entende que não é para abrir outra página, mas sim rolar para a seção que tem o id correspondente -->
+                </ul>     
+            </nav>   
+        </header>     
+        
+        <section id="hero"> <!-- Blocos de conteúdo com um tema próprio (Hero, Benefícios, Sobre)  -->
+            <div class="hero-text">
+                <h1>Amor na xícara</h1> <!-- Títulos (Headings). Vai do <h1> (título principal) até o <h6> --> 
+                <h1>Aproveite seu dia</h1>
+                <p>Receba em casa uma caixa personalizada com novos produtos de café todo mês. Praticidade e economia para quem não abre mão dessa paixão na rotina.</p> <!-- É a tag de parágrafo. Usada para qualquer bloco de texto comum -->
+                <button>Quero assinar a Cofvee</button> <!-- Cria um botão clicável padrão -->
+            </div>
+            
+            <div class="hero-img">
+                <img src="imagens/graos.jpg" alt="Grãos de café." class="foto-fundo">
+                <img src="imagens/etapas.jpg" alt="Etapas do café." class="foto-frente">
+            </div>
+        </section>     
+        
+        <section id="beneficios">     
+            <article class="card"> <!-- Conteúdo independente e reutilizável -->
+                <h3>Comodidade no seu endereço</h3>
+                <p>Esqueça as idas ao mercado. Sua caixa chega direto na sua casa ou no escritório da sua empresa.</p>
+            </article>
+            <article class="card">
+                <h3>Descubra novos sabores</h3>
+                <p>Saia da rotina! Todo mês, selecionamos grãos e produtos diferentes para você testar e se surpreender.</p>
+            </article>     
+            <article class="card">
+                <h3>Feito para o seu bolso</h3>
+                <p>Planos de assinatura econômicos e totalmente personalizáveis. O melhor custo-benefício para a sua rotina.</p>
+            </article>   
+        </section>     
+        
+        <section id="sobre">     
+            <h2>Muito mais que uma bebida, um estilo de vida</h2>     
+            <p>A Cofvee nasceu para jovens adultos, empresas e apaixonados por café que buscam praticidade. Nosso objetivo principal é conectar você a novos produtos de forma inteligente, entregando energia e sabor diretamente na sua porta.</p>
+        </section>     
+        
+        <footer> <!-- Rodapé da página -->
+            <p>&copy; 2026 Cofvee. Todos os direitos reservados.</p> <!-- Código especial para o símbolo de copyright -->
+        </footer>   
+
+    </body> 
+</html>     
